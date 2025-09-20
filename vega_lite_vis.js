@@ -1,1 +1,1 @@
-vegaEmbed('#dot_map', 'week9.vg.json');
+vegaEmbed('#vis', 'week9.vg.json');
