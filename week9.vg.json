@@ -4,7 +4,30 @@
   "width": 800,
   "height": 450,
   "title": "Fatal tornadoes in the US (2011)",
-  "projection": {"type": "albersUsa"},
+  "projection": {"type": "albers",
+  "rotate": [96, 0, 0],
+  "center": [0, 38.65],
+  "parallels": [29.5, 45.5],
+  "scale": 1000,
+  "translate": [400, 225]},
+  "params": [
+    {
+      "name": "selectedState",
+      "value": "",
+      "bind": {
+        "input": "select",
+        "options": [
+          "",
+          "AL", "AR", "GA", "KS", "KY", "LA", "ME", "MN", "MO", "MS", "NC", "OK", "SC", "TN", "VA", "WI"
+        ],
+        "labels": [
+          "All",
+          "Alabama", "Arkansas", "Georgia", "Kansas", "Kentucky", "Louisiana", "Maine", "Minnesota", "Missouri", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Virginia", "Wisconsin"
+        ],
+        "name": "Select State: "
+      }
+    }
+  ],
   "config": {
     "view": {
       "stroke": "black",   
@@ -14,9 +37,12 @@
   "layer": [
     {
       "data": {
-        "url": "ne_110m_2.json",
+        "url": "usa_map.json",
         "format": {"type": "topojson", "feature": "ne_110m_admin_1_states_provinces"}
       },
+       "transform": [
+    {"filter": "datum.name != 'Alaska' && datum.name != 'Hawaii'"}
+  ],
       "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
     },
     {
@@ -29,7 +55,7 @@
       },
       "transform": [
        {
-    "filter": "datum.mag != -9 && datum.yr == 2011 && datum.st != 'PR' && datum.st != 'VI' && datum.fat > 0"
+    "filter": "datum.mag != -9 && datum.yr == 2011 && datum.st != 'PR' && datum.st != 'VI' && datum.fat > 0 && (!selectedState || datum.st == selectedState)"
     }
       ],
       "mark": {"type": "point", "tooltip": {"content": "data"}},
@@ -56,7 +82,6 @@
       "#ff7f00",  
       "#e41a1c" 
     ]}
-
         },
         "tooltip": [
     {"field": "date", "type": "ordinal", "title": "Date"},
