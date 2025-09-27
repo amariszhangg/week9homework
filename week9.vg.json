@@ -18,11 +18,11 @@
         "input": "select",
         "options": [
           "",
-          "AL", "AR", "GA", "KS", "KY", "LA", "ME", "MN", "MO", "MS", "NC", "OK", "SC", "TN", "VA", "WI"
+          "AL", "AR", "GA", "KS", "KY", "LA", "MA", "MN", "MO", "MS", "NC", "OK", "SC", "TN", "VA", "WI"
         ],
         "labels": [
           "All",
-          "Alabama", "Arkansas", "Georgia", "Kansas", "Kentucky", "Louisiana", "Maine", "Minnesota", "Missouri", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Virginia", "Wisconsin"
+          "Alabama", "Arkansas", "Georgia", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Minnesota", "Missouri", "Mississippi", "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Virginia", "Wisconsin"
         ],
         "name": "Select State: "
       }
@@ -94,3 +94,4 @@
     }
   ]
 }
+
